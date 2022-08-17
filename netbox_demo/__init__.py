@@ -5,7 +5,7 @@ class NetBoxDemoConfig(PluginConfig):
     name = 'netbox_demo'
     verbose_name = 'Demo'
     description = 'Demo maintenance plugin'
-    version = '0.2'
+    version = '0.3.1'
     default_settings = {
         'admin_username': 'admin',
     }
