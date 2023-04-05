@@ -1,0 +1,25 @@
+{# User login page. Extends base.html directly to override normal UI layout. #}
+{% extends 'base/base.html' %}
+{% load form_helpers %}
+
+{% block layout %}
+  <main class="login-container text-center">
+    <h4 class="mb-4">Create a Personal Demo Account</h4>
+    <p>Complete the form below to create a new user and log in.</p>
+    <p>If no username/password is provided, credentials will be generated automatically.</p>
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Errors</h4>
+        <p>{{ form.non_field_errors }}</p>
+      </div>
+    {% endif %}
+
+    <form action="{% url 'plugins:netbox_demo:login' %}" method="post">
+      {% csrf_token %}
+      {% render_form form %}
+      <button type="submit" class="btn btn-primary w-100 mt-4">Create & Sign In</button>
+    </form>
+
+  </main>
+{% endblock layout %}
