@@ -1,7 +1,5 @@
 from django import forms
 
-from utilities.forms import BootstrapMixin
-
 
 class CreateUserForm(forms.Form):
     username = forms.CharField(
